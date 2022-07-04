@@ -92,7 +92,13 @@
   @media (min-width: 576px) { }
   
   /*Medium devices (tablets, 768px and up)*/
-  @media (min-width: 768px) { }
+  @media (min-width: 768px) {
+    .newsBody{
+      width: 14rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+   }
   
   /* Large devices (desktops, 992px and up)*/
   @media (min-width: 992px) { }
