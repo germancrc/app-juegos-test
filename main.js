@@ -1,3 +1,4 @@
+//juegos
 const mainUrl = "https://api.rawg.io/api/games";
 const key = "?key=cfc093c9499c431f851aa37cda834746";
 let parameter = "&search=";
@@ -7,20 +8,74 @@ let urlCompleta = "";
 
 const btn = document.getElementById("btn");
 
-urlCompleta = mainUrl + key + parameter + buscar;
+//Noticias
+
+
+//NOTICIAS RAPIDAPI
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '6359f7fed2msh768fdf99f2eb0fep1dbca5jsn3ffc11c469d8',
+		'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com'
+	}
+};
+
+fetch('https://videogames-news2.p.rapidapi.com/videogames_news/recent', options)
+	.then(response => response.json())
+	.then(newsRapid => console.log(newsRapid))
+	.catch(err => console.error(err));
+
+
+  const getNews = async () => {
+    await fetch('https://videogames-news2.p.rapidapi.com/videogames_news/recent', options)
+      .then((response) => {
+        return response.json();
+      })
+      .then((newsRapid) => {
+        console.log(newsRapid);
+  
+        for (let i = 0; i < newsRapid.length; i++) {
+  
+          const newsCont = document.createElement("div");
+          document.getElementById("noticias").appendChild(newsCont);
+  
+          const pics = document.createElement("img");
+          pics.src = newsRapid[i].image;
+          pics.className = "card-img-top";
+          newsCont.appendChild(pics);
+  
+          const title = document.createElement("h6");
+          title.innerText = newsRapid[i].title;
+          title.className = "card-title";
+          newsCont.appendChild(title);
+  
+        }
+      });
+  };
+
+
+//BUSCAR RAWG
 
 btn.onclick = () => {
   document.getElementById("juegos-container").innerHTML = "";
   document.getElementById("resultado").innerHTML = "";
-
-  buscar = document.getElementById("buscar").value;
+  document.getElementById("noticias").innerHTML = "";
+  document.getElementById("notiHead").innerHTML = "";
   
+  buscar = document.getElementById("buscar").value;
   console.log(buscar);
 
-  if(buscar.value === ""){
-    alert("Hello! I am an alert box!!");
+  if(buscar === ""){
+    window.alert("Escriba el nombre del juego!!!")
+
+    getNews();
+
+    document.getElementById("notiHead").innerHTML = "Noticias";
+
   }else{
     urlCompleta = mainUrl + key + parameter + buscar;
+  
     const spinner = document.getElementById("spin");
     spinner.className = "d-flex justify-content-center"
   
@@ -29,6 +84,7 @@ btn.onclick = () => {
   
     getData();
   }
+
 };
 
 const getData = async () => {
@@ -65,9 +121,11 @@ const getData = async () => {
         title.innerText = games.results[i].name;
         title.className = "card-title";
         cardBody.appendChild(title);
+
       }
     });
 };
 
+getNews(),
 
 getData();
