@@ -22,14 +22,19 @@
 .card-body {
   margin-top: 1rem;
   border-radius: 2px;
-  box-shadow: 5px 5px 11px -2px rgba(0,0,0,0.75);
+ /* box-shadow: 5px 5px 11px -2px rgba(0,0,0,0.75);
   -webkit-box-shadow: 5px 5px 11px -2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 5px 5px 11px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 11px -2px rgba(0,0,0,0.75);*/
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border: 1px solid #dbdbdb;
   cursor: pointer;
+  background-color: #333333;
   
+}
+
+.cardCont{
+  border-radius: 10px;
 }
 
 .newsBody{
@@ -39,6 +44,7 @@
   margin-right: 0.5rem;
   border: 1px solid #dbdbdb;
   cursor: pointer;
+  background-color: #333333;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -47,6 +53,7 @@
   -webkit-transform: scale(1.05) ;
   -moz-transform: scale(1.05) ;
   transition: 0.2s;
+  text-decoration: underline;
 }
 
 .card-title, .newsTitle{
@@ -54,10 +61,16 @@
     padding-bottom: 1rem;
     padding-left: 0.3rem;
     text-align: center;
+    color: white;
 }
 .link{
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+.link:hover{
+  
+  color: white;
 }
 
 

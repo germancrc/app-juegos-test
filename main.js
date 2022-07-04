@@ -8,7 +8,7 @@ let urlCompleta = "";
 
 const btn = document.getElementById("btn");
 
-/*
+
 //NOTICIAS RAPIDAPI
 
 const options = {
@@ -55,15 +55,14 @@ fetch('https://videogames-news2.p.rapidapi.com/videogames_news/recent', options)
         }
       });
   };
-*/
 
 //BUSCAR RAWG
 
 btn.onclick = () => {
   document.getElementById("juegos-container").innerHTML = "";
   document.getElementById("resultado").innerHTML = "";
-  //document.getElementById("noticias").innerHTML = "";
-  //document.getElementById("notiHead").innerHTML = "";
+  document.getElementById("noticias").innerHTML = "";
+  document.getElementById("notiHead").innerHTML = "";
   
   buscar = document.getElementById("buscar").value;
   console.log(buscar);
@@ -128,12 +127,7 @@ const getData = async () => {
         //link.appendChild(document.createTextNode("Link"));
         link.href = 'https://api.rawg.io/api/games/'+ games.results[i].id+ '?key=cfc093c9499c431f851aa37cda834746';
         link.className = "link";
-        link.onclick = loadScript;
         title.appendChild(link);
-        
-        function loadScript(){
-         alert('Hi')
-        }
 
 
 
@@ -141,6 +135,6 @@ const getData = async () => {
     });
 };
 
-//getNews(),
+getNews(),
 
 getData();
