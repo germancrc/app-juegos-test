@@ -8,9 +8,7 @@ let urlCompleta = "";
 
 const btn = document.getElementById("btn");
 
-//Noticias
-
-
+/*
 //NOTICIAS RAPIDAPI
 
 const options = {
@@ -39,29 +37,33 @@ fetch('https://videogames-news2.p.rapidapi.com/videogames_news/recent', options)
   
           const newsCont = document.createElement("div");
           document.getElementById("noticias").appendChild(newsCont);
+
+          const newsBody= document.createElement("div");
+          newsBody.className = "newsBody";
+          newsCont.appendChild(newsBody);
   
           const pics = document.createElement("img");
           pics.src = newsRapid[i].image;
-          pics.className = "card-img-top";
-          newsCont.appendChild(pics);
+          pics.className = "newsImg";
+          newsBody.appendChild(pics);
   
           const title = document.createElement("h6");
           title.innerText = newsRapid[i].title;
-          title.className = "card-title";
-          newsCont.appendChild(title);
+          title.className = "newsTitle";
+          newsBody.appendChild(title);
   
         }
       });
   };
-
+*/
 
 //BUSCAR RAWG
 
 btn.onclick = () => {
   document.getElementById("juegos-container").innerHTML = "";
   document.getElementById("resultado").innerHTML = "";
-  document.getElementById("noticias").innerHTML = "";
-  document.getElementById("notiHead").innerHTML = "";
+  //document.getElementById("noticias").innerHTML = "";
+  //document.getElementById("notiHead").innerHTML = "";
   
   buscar = document.getElementById("buscar").value;
   console.log(buscar);
@@ -118,14 +120,27 @@ const getData = async () => {
         cardBody.appendChild(pics);
 
         const title = document.createElement("h6");
-        title.innerText = games.results[i].name;
         title.className = "card-title";
         cardBody.appendChild(title);
+
+        const link = document.createElement("a");
+        link.innerText = games.results[i].name;
+        //link.appendChild(document.createTextNode("Link"));
+        link.href = 'https://api.rawg.io/api/games/'+ games.results[i].id+ '?key=cfc093c9499c431f851aa37cda834746';
+        link.className = "link";
+        link.onclick = loadScript;
+        title.appendChild(link);
+        
+        function loadScript(){
+         alert('Hi')
+        }
+
+
 
       }
     });
 };
 
-getNews(),
+//getNews(),
 
 getData();
