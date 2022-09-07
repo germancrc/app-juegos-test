@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, min-scale=1">
     <title>prueba tarjetas Fetch</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -11,9 +11,9 @@
 </head>
 <body d-flex flex-column min-vh-100>
 
-    <nav class="navbar bg-light">
+    <nav class="navbar bg-dark navbar-dark">
         <div class="container-fluid">
-          <a class="navbar-brand namePag">GamesInfo</a>
+          <a href="#" class="navbar-brand namePag">GamesInfo</a>
           <form class="d-flex buscador" role="search">
             <input class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search" id="buscar">
             <button class="btn btn-primary" type="button" id="btn">Buscar</button>
@@ -28,28 +28,49 @@
         </div>
       </div>
 
+      
+      <div class="container text-center mt-2">
+        <h1>Proximos lanzamientos</h1>
+        <form>
+          <label for="begDate">Desde:</label>
+          <input type="date" id="begDate" name="begDate">
+          &nbsp;
+          <label for="endDate">Hasta:</label>
+          <input type="date" id="endDate" name="endDate">
+          &nbsp;
+          <input type="button" value="Buscar" onclick="get_Date()">
+        </form>
+        </div>
+
+
+
+      
+      <!--NOTICIAS
+      <div class="container">
+        <h3 class="text-center" id="notiHead">Noticias</h3>
+      </div>
+      
+      <div class="container newsCont">
+        <div id="rapid-news" class="d-flex justify-content-center row row-cols-1 row-cols-sm-2 row-cols-md-3"></div>
+      </div>-->
+      
+      <!--JUEGOS-->
+
       <br id="separa" class="d-none">      
 
-      <div class="container" id="resultado"></div>
-
-      <!--NOTICIAS-->
-      <h3 class="text-center mt-3" id="notiHead">Noticias</h3>
-      <div class="container mt-4">
-        <div id="noticias" class="newsCont row row-cols-1 row-cols-sm-2 row-cols-md-3"></div>
-      </div>
-
-
-      <!--JUEGOS-->
+      
+      
       <div class="container juegosCont">
+        <div class="container" id="resultado"></div>
         <div id="juegos-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3"></div>
       </div>
       
 
-  <footer class="text-center text-white fixed-bottom bg-light mt-4">
+  <footer class="text-center bg-dark">
   <!-- Copyright -->
-  <div class="text-center text-dark p-3">
+  <div class="text-center text-light p-3">
     © 2022 
-    <a class="text-dark" href="#">GermanCRC</a>
+    <a class="text-light" href="#">GermanCRC</a>
   </div>
   <!-- Copyright -->
 </footer>
